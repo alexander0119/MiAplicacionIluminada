@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permiso para respuesta háptica/vibración al guardar registros -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,24 +13,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MiPrimeraAplicacion">
+        android:theme="@style/Theme.MiAplicacionIluminacion">
+        <!-- SplashActivity: punto de entrada de la app (LAUNCHER) -->
         <activity
-            android:name=".views.BienvenidaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.MainActivity"
+            android:name=".views.SplashActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:theme="@style/Theme.MiAplicacionIluminacion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.MainActivity2"
+            android:name=".views.MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".views.BienvenidaActivity"
+            android:exported="false" />
         <activity
             android:name=".views.PreferenciasActivity"
             android:exported="false"
@@ -42,6 +45,14 @@
 
         <activity
             android:name=".views.FormularioLecturaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".views.ListaRegistroIluminacionActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".views.FormularioRegistroIluminacionActivity"
             android:exported="false" />
 
     </application>

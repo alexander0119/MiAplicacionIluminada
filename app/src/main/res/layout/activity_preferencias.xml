@@ -34,15 +34,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTituloPreferencias">
 
-        <!-- Switch para activar o desactivar la recepción de notificaciones -->
+        <!-- Switch para activar o desactivar el ajuste automático de luz -->
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swNotificaciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recibir notificaciones"
+            android:text="Activar ajuste automático de luz"
             android:textSize="16sp" />
 
-        <!-- Selector desplegable (Spinner) para elegir el idioma preferido -->
+        <!-- Selector desplegable (Spinner) para elegir la ubicación -->
         <Spinner
             android:id="@+id/spIdioma"
             android:layout_width="match_parent"
@@ -50,6 +50,16 @@
             android:layout_marginTop="16dp"
             android:entries="@array/idiomas"
             android:minHeight="48dp" />
+
+        <!-- Botón para restablecer todos los valores al estado por defecto -->
+        <Button
+            android:id="@+id/btnRestablecerPreferencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#F44336"
+            android:text="Restablecer valores por defecto"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

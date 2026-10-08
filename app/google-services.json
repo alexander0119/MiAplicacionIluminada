@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "806586353862",
-    "project_id": "iot-jueves",
-    "storage_bucket": "iot-jueves.firebasestorage.app"
+    "project_number": "188576769850",
+    "project_id": "iluminacion-inteligente-4d263",
+    "storage_bucket": "iluminacion-inteligente-4d263.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:806586353862:android:20083334d1a48bf16e6fc7",
+        "mobilesdk_app_id": "1:188576769850:android:6fcb8be062015689755203",
         "android_client_info": {
-          "package_name": "com.example.miprimeraaplicacion"
+          "package_name": "com.example.miaplicacioniluminacion"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAO9H3UUkTtIUNJNVB132ON4H-N20b3fqI"
+          "current_key": "AIzaSyCD3ZUNvaZ04EZ3Y4svouIZ6905AXN04jc"
         }
       ],
       "services": {

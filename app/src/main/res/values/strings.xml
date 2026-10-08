@@ -1,16 +1,20 @@
 <resources>
     <!-- Nombre de la aplicación -->
-    <string name="app_name">MiPrimeraAplicacion</string>
+    <string name="app_name">Iluminacion Inteligente</string>
 
-    <!-- Lista de idiomas disponibles para la selección de preferencias del usuario -->
+    <!-- Lista de ubicaciones disponibles para la selección de preferencias del usuario -->
     <string-array name="idiomas">
-        <!-- Opción de idioma Español -->
-        <item>Español</item>
-        <!-- Opción de idioma Inglés -->
-        <item>Inglés</item>
-        <!-- Opción de idioma Italiano -->
-        <item>Italiano</item>
-        <!-- Opción de idioma Portugués -->
-        <item>Portugues</item>
+        <!-- Opción por defecto -->
+        <item>Seleccionar ubicación</item>
+        <!-- Ubicación Sala principal -->
+        <item>Sala principal</item>
+        <!-- Ubicación Dormitorio -->
+        <item>Dormitorio</item>
+        <!-- Ubicación Cocina -->
+        <item>Cocina</item>
+        <!-- Ubicación Pasillo -->
+        <item>Pasillo</item>
+        <!-- Ubicación Exterior -->
+        <item>Exterior</item>
     </string-array>
 </resources>

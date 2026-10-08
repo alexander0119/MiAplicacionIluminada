@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!-- Título dinámico de la pantalla según sea creación o edición -->
+    <TextView
+        android:id="@+id/txtTituloFormulario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Nuevo Registro"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <!-- Campo de texto para la Ubicación física -->
+    <EditText
+        android:id="@+id/edtUbicacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Ubicación (ej. Sala, Dormitorio)"
+        android:inputType="textCapWords"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloFormulario" />
+
+    <!-- Contenedor horizontal para el nivel de luz y el botón de estado automático del sensor -->
+    <LinearLayout
+        android:id="@+id/layoutLuzAmbiental"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtUbicacion">
+
+        <!-- Campo numérico decimal para el Nivel de Luz Ambiental -->
+        <EditText
+            android:id="@+id/edtNivelLuzAmbiental"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Luz ambiental (lx)"
+            android:inputType="numberDecimal" />
+
+        <!-- Botón de estado para alternar o pausar la lectura automática en vivo -->
+        <Button
+            android:id="@+id/btnToggleSensor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="En vivo 🟢"
+            android:backgroundTint="#009688"
+            android:onClick="onToggleSensorClick" />
+    </LinearLayout>
+
+    <!-- Etiqueta que muestra en tiempo real el porcentaje de intensidad seleccionado en el SeekBar -->
+    <TextView
+        android:id="@+id/txtValorIntensidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Intensidad de luz: 0%"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutLuzAmbiental" />
+
+    <!-- Control deslizante (SeekBar) para seleccionar la intensidad de luz de 0 a 100% -->
+    <SeekBar
+        android:id="@+id/skbIntensidadLuz"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtValorIntensidad" />
+
+    <!-- Campo de texto para la Fecha de Registro (abre selector de calendario y reloj) -->
+    <EditText
+        android:id="@+id/edtFechaRegistro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Fecha de registro (ej. 06/10/2026 18:30)"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
+        android:cursorVisible="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skbIntensidadLuz" />
+
+    <!-- Botón para Guardar el registro en Firestore -->
+    <Button
+        android:id="@+id/btnGuardarRegistro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Guardar Registro"
+        android:onClick="onGuardarRegistroClick"
+        android:backgroundTint="#4CAF50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFechaRegistro" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

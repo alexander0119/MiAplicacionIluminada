@@ -8,13 +8,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Incremento 1: Logo de INACAP centrado en la parte superior -->
+    <!-- Logo de la aplicación (interior) -->
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/logo_inacap"
+        android:contentDescription="Logo Iluminación Inteligente"
+        android:src="@drawable/interior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,14 +47,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtTitulo" />
 
-    <!-- Incremento 4: Campo de contraseña con texto oculto (textPassword) -->
+    <!-- ════════════════════════════════════════════════════════════
+         📌 SECCIÓN 1: Campo de contraseña en el diseño XML
+         ════════════════════════════════════════════════════════════
+         Este campo captura la contraseña del usuario al iniciar sesión.
+         - inputType="textPassword": oculta el texto con puntos (••••••)
+         - maxLength="20":  límite máximo de 20 caracteres físicos que
+           el usuario puede escribir (el teclado deja de aceptar más).
+         - El hint indica al usuario el rango válido (6–20 caracteres).
+         ════════════════════════════════════════════════════════════ -->
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Contraseña"
+        android:hint="Contraseña (6–20 caracteres)"
         android:inputType="textPassword"
+        android:maxLength="20"
         app:layout_constraintEnd_toStartOf="@+id/btnMostrarPassword"
         app:layout_constraintStart_toStartOf="@id/edtUsuario"
         app:layout_constraintTop_toBottomOf="@id/edtUsuario" />

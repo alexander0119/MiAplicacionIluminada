@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ícono de bombilla encendida (Material Design style), color blanco para uso sobre fondo teal -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Cuerpo de la bombilla -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2Z" />
+
+    <!-- Base / casquillo de la bombilla -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z" />
+
+    <!-- Línea decorativa interna (filamento) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M9,19H15V18H9V19Z" />
+
+</vector>

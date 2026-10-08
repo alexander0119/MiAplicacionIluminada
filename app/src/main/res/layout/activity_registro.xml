@@ -7,13 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".RegistroActivity">
 
-    <!-- Logo INACAP centrado en la parte superior -->
+    <!-- Logo de la aplicación (interior) centrado en la parte superior -->
     <ImageView
         android:id="@+id/imgLogoRegistro"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/logo_inacap"
+        android:contentDescription="Logo Iluminación Inteligente"
+        android:src="@drawable/interior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,26 +58,40 @@
         app:layout_constraintStart_toStartOf="@id/edtNombreRegistro"
         app:layout_constraintTop_toBottomOf="@id/edtNombreRegistro" />
 
-    <!-- Campo de Contraseña -->
+    <!-- ════════════════════════════════════════════════════════════
+         📌 SECCIÓN 1: Campo de contraseña en el diseño XML
+         ════════════════════════════════════════════════════════════
+         Este campo recibe la contraseña que el usuario desea crear.
+         - inputType="textPassword": oculta el texto (••••••)
+         - maxLength="20": bloquea físicamente que se escriban más de
+           20 caracteres, previniendo errores antes de que ocurran.
+         - El hint indica claramente el rango permitido (6–20 chars).
+         ════════════════════════════════════════════════════════════ -->
     <EditText
         android:id="@+id/edtPasswordRegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Contraseña (mínimo 6 caracteres)"
+        android:hint="Contraseña (6–20 caracteres)"
         android:inputType="textPassword"
+        android:maxLength="20"
         app:layout_constraintEnd_toEndOf="@id/edtEmailRegistro"
         app:layout_constraintStart_toStartOf="@id/edtEmailRegistro"
         app:layout_constraintTop_toBottomOf="@id/edtEmailRegistro" />
 
-    <!-- Campo de Confirmar Contraseña -->
+    <!-- ════════════════════════════════════════════════════════════
+         Campo de confirmación de contraseña
+         Repite la misma configuración: texto oculto y máximo 20 chars.
+         La validación en el código compara ambos campos antes de registrar.
+         ════════════════════════════════════════════════════════════ -->
     <EditText
         android:id="@+id/edtConfirmarPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Confirmar Contraseña"
+        android:hint="Confirmar Contraseña (6–20 caracteres)"
         android:inputType="textPassword"
+        android:maxLength="20"
         app:layout_constraintEnd_toEndOf="@id/edtPasswordRegistro"
         app:layout_constraintStart_toStartOf="@id/edtPasswordRegistro"
         app:layout_constraintTop_toBottomOf="@id/edtPasswordRegistro" />

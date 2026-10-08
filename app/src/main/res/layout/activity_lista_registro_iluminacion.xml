@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <!-- Logo de la aplicación (interior) centrado en la parte superior -->
+    <ImageView
+        android:id="@+id/imgLogoListaRegistros"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="Logo Iluminación Inteligente"
+        android:src="@drawable/interior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título descriptivo de la pantalla de registros de iluminación -->
+    <TextView
+        android:id="@+id/txtTituloListaRegistros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Registros de Iluminación"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogoListaRegistros" />
+
+    <!-- Contenedor horizontal que agrupa el buscador, botón de ordenar y botón de compartir reporte -->
+    <LinearLayout
+        android:id="@+id/layoutBarraSuperior"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="@+id/rvRegistrosIluminacion"
+        app:layout_constraintStart_toStartOf="@+id/rvRegistrosIluminacion"
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloListaRegistros">
+
+        <!-- Contenedor horizontal del buscador con botón para limpiar el texto -->
+        <LinearLayout
+            android:id="@+id/layoutBuscador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="6dp">
+
+            <!-- Campo de texto para filtrar registros -->
+            <EditText
+                android:id="@+id/edtBuscarRegistro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Buscar por ubicación o fecha..."
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:inputType="text" />
+
+            <!-- Botón para limpiar rápidamente el texto ingresado en el buscador -->
+            <ImageButton
+                android:id="@+id/btnLimpiarBusqueda"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:contentDescription="Limpiar búsqueda"
+                android:visibility="gone"
+                app:tint="#888888" />
+        </LinearLayout>
+
+        <!-- Botón para abrir el menú de ordenamiento de registros -->
+        <ImageButton
+            android:id="@+id/btnOrdenarRegistros"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:contentDescription="Ordenar registros"
+            app:tint="#2196F3" />
+
+        <!-- Botón para compartir el reporte general de registros -->
+        <ImageButton
+            android:id="@+id/btnCompartirReporte"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:src="@android:drawable/ic_menu_share"
+            android:contentDescription="Compartir reporte"
+            app:tint="#4CAF50" />
+    </LinearLayout>
+
+    <!-- RecyclerView que albergará la lista dinámica de registros filtrados -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRegistrosIluminacion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutBarraSuperior"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Mensaje visual descriptivo cuando la lista esté vacía o no existan resultados de búsqueda -->
+    <TextView
+        android:id="@+id/txtSinResultados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No se encontraron registros"
+        android:textSize="16sp"
+        android:textColor="#757575"
+        android:textStyle="italic"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rvRegistrosIluminacion"
+        app:layout_constraintEnd_toEndOf="@+id/rvRegistrosIluminacion"
+        app:layout_constraintStart_toStartOf="@+id/rvRegistrosIluminacion"
+        app:layout_constraintTop_toTopOf="@+id/rvRegistrosIluminacion" />
+
+    <!-- Botón de acción flotante (FAB) para registrar una nueva medición -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAgregarRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:contentDescription="Agregar registro de iluminación"
+        app:backgroundTint="#4CAF50"
+        app:tint="@android:color/white"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

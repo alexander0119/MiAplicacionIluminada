@@ -7,19 +7,60 @@
     android:layout_height="match_parent"
     tools:context=".BienvenidaActivity">
 
-    <!-- Mensaje de bienvenida centrado horizontalmente y en la mitad superior -->
-    <TextView
-        android:id="@+id/txtBienvenida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnPreferencias"
+    <!-- Logo de la aplicación (interior) — cabeza de la cadena vertical (packed) -->
+    <ImageView
+        android:id="@+id/imgBombilla"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:contentDescription="Logo de la aplicación"
+        android:src="@drawable/interior"
+        app:layout_constraintBottom_toTopOf="@+id/txtBienvenida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <!-- Mensaje de bienvenida con nombre del usuario -->
+    <TextView
+        android:id="@+id/txtBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Bienvenido"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtEstadoAjuste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBombilla" />
+
+    <!-- Indicador del estado del ajuste automático de luz -->
+    <TextView
+        android:id="@+id/txtEstadoAjuste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="⚙️ Ajuste automático: DESACTIVADO"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtEstadoUbicacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBienvenida" />
+
+    <!-- Indicador de la ubicación preferida guardada -->
+    <TextView
+        android:id="@+id/txtEstadoUbicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="📍 Ubicación guardada: Sin definir"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPreferencias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEstadoAjuste" />
 
     <!-- Botón para navegar a la pantalla de Preferencias -->
     <Button
@@ -27,12 +68,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:drawableStart="@drawable/ic_settings"
+        android:drawablePadding="8dp"
         android:onClick="onPreferenciasClick"
         android:text="Preferencias"
         app:layout_constraintBottom_toTopOf="@+id/btnVerLecturas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBienvenida" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEstadoUbicacion" />
 
     <!-- Botón para navegar a la pantalla de Lecturas -->
     <Button
@@ -40,12 +83,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#2196F3"
+        android:drawableStart="@drawable/ic_list"
+        android:drawablePadding="8dp"
         android:onClick="onVerLecturasClick"
         android:text="Ver Lecturas"
-        android:backgroundTint="#2196F3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnVerRegistrosIluminacion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPreferencias" />
+
+    <!-- Botón para navegar a la pantalla de Registros de Iluminación -->
+    <Button
+        android:id="@+id/btnVerRegistrosIluminacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FF9800"
+        android:drawableStart="@drawable/ic_bombilla"
+        android:drawablePadding="8dp"
+        android:onClick="onVerRegistrosIluminacionClick"
+        android:text="Registros Iluminación"
+        app:layout_constraintBottom_toTopOf="@+id/btnCerrarSesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVerLecturas" />
+
+    <!-- Botón para cerrar sesión -->
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#F44336"
+        android:onClick="onCerrarSesionClick"
+        android:text="Cerrar sesión"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVerRegistrosIluminacion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

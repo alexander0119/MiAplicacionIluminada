@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.miprimeraaplicacion"
+    namespace = "com.example.miaplicacioniluminacion"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.miprimeraaplicacion"
+        applicationId = "com.example.miaplicacioniluminacion"
         minSdk = 24
         targetSdk = 37
         versionCode = 1
@@ -21,9 +21,8 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
